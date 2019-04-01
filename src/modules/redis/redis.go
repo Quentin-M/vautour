@@ -33,10 +33,8 @@ const (
 )
 
 type redis struct {
+	lib.Options  `yaml:",inline"`
 	c *lib.Client
-
-	Addr, Password string
-	DB int
 }
 
 func init() {
@@ -52,11 +50,7 @@ func (q *redis) Configure(moduleConfig *modules.ModuleConfig) error {
 	}
 
 	// Connect to Redis.
-	q.c = lib.NewClient(&lib.Options{
-		Addr:     q.Addr,
-		Password: q.Password,
-		DB:       q.DB,
-	})
+	q.c = lib.NewClient(&q.Options)
 
 	// Ping it to verify the connection.
 	if _, err := q.c.Ping().Result(); err !=nil {
