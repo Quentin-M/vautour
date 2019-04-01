@@ -1,0 +1,35 @@
+vautour:
+  modules:
+    # queues
+    redis:
+      driver: redis
+      addr: redis:6379
+      password: ""
+      db: 0
+    # inputs
+    pastebin:
+      driver: pastebin
+      interval: 15s
+    # processors
+    yara:
+      driver: yara
+      path: config/rules/_index.yar
+    # outputs
+    elasticsearch:
+      driver: elasticsearch
+      timeout: 3s
+      url: http://elasticsearch:9200
+      index: vautour
+  queues:
+    module: redis
+  inputs:
+    modules: [pastebin]
+  scrapers:
+    modules: [pastebin]
+    threads: 2
+  processors:
+    modules: [yara]
+    threads: 2
+  outputs:
+    modules: [elasticsearch]
+    threads: 2
