@@ -6,10 +6,24 @@ vautour:
       addr: redis:6379
       password: ""
       db: 0
+      #network: tcp/unix
+      #maxRetries: 3
+      #minRetryBackoff: 8ms
+      #maxRetryBackoff: 512ms
+      #dialTimeout: 5s
+      #readTimeout: 3s
+      #writeTimeout: 3s
+      #poolSize: 10 * CPUs
+      #minIdleConns: 10
+      #maxConnAge: 0
+      #poolTimeout: 4s
+      #idleTimeout: 300s
+      #idleCheckFrequency: 60s
+      #tlsConfig: (see https://golang.org/pkg/crypto/tls/#Config)
     # inputs
     pastebin:
       driver: pastebin
-      interval: 15s
+      interval: 15s # <= 0 to disable the input (scrape only)
     # processors
     yara:
       driver: yara
@@ -19,7 +33,14 @@ vautour:
       driver: elasticsearch
       timeout: 3s
       url: http://elasticsearch:9200
-      index: vautour
+      #index: vautour
+      #shards: 1
+      #replicas: 0
+      #sniff: false
+      #healthcheck: true
+      #infolog:
+      #errorlog:
+      #tracelog:
   queues:
     module: redis
   inputs:
