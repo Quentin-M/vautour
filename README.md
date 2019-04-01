@@ -18,16 +18,16 @@ as a new Go package in `src/modules` & importing it in `cmd/vautour/main.go`
 | Pastebin       | ✅     | (Requires Pastebin PRO)           |
 | Github / Gists | 🕒     | (Planned)                         |
 | Stack Exchange | 🕒     | (Planned)                         |
-| **Processors*  |        |                                   |
-| YARA           | ✅     | ([Examples rules](config/rules/)) |
+| **Processors** |        |                                   |
+| YARA           | ✅     | ([Sample rules](config/rules/)) |
 | **Outputs**    |        |                                   |
 | ElasticSearch  | ✅     |                                   |
-| **Queue**      |        |                                   |
+| **Queues**     |        |                                   |
 | Redis          | ✅     |                                   |
 
 ### Getting started
 
-- Read & acknowledge its [DISCLAIMER](DISCLAIMER), as well its [LICENSE](LICENSE)
+- Read & acknowledge the [DISCLAIMER](DISCLAIMER), as well the [LICENSE](LICENSE)
 - Run `docker-compose up`
 - Wait a minute for the ELK stack to start, and for the first documents to be published
     - In the meantime, take a look at the default [config](config/vautour.yaml)
