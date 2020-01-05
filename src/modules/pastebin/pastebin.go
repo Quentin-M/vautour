@@ -19,18 +19,24 @@ package pastebin
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/pkg/errors"
 	"github.com/quentin-m/vautour/src/modules"
 	"github.com/quentin-m/vautour/src/pkg/stopper"
 	"github.com/quentin-m/vautour/src/pkg/vautour"
 	log "github.com/sirupsen/logrus"
 	"io/ioutil"
 	"net/http"
+	"regexp"
 	"time"
 )
 
 const (
 	listingURL = "https://scrape.pastebin.com/api_scraping.php?limit=250"
 	scrapingURL = "https://scrape.pastebin.com/api_scrape_item.php?i=%s"
+)
+
+var (
+	noAcccessREx = regexp.MustCompile("YOUR IP: .* DOES NOT HAVE ACCESS.")
 )
 
 type pastebin struct{
@@ -94,6 +100,13 @@ func (p *pastebin) Scrape(d *vautour.Document) error {
 
 	d.Content, err = ioutil.ReadAll(res.Body)
 	if err != nil {
+		log.WithField("role", "scraper").WithField("module", "pastebin").WithField("item_id", d.ID).WithError(err).Warn("failed to scrape paste")
+		return err
+	}
+
+	// Sometimes, the scraping API will return unauthorized regardless of whether the IP is indeed authorized.
+	// However, retries will eventually succeed.
+	if err := errors.New(noAcccessREx.FindString(string(d.Content))); err.Error() != "" {
 		log.WithField("role", "scraper").WithField("module", "pastebin").WithField("item_id", d.ID).WithError(err).Warn("failed to scrape paste")
 		return err
 	}
