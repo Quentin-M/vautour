@@ -22,6 +22,7 @@ as a new Go package in `src/modules` & importing it in `cmd/vautour/main.go`
 | YARA           | ✅     | ([Sample rules](config/rules/)) |
 | **Outputs**    |        |                                   |
 | ElasticSearch  | ✅     |                                   |
+| Mailer         |       |                                   |
 | **Queues**     |        |                                   |
 | Redis          | ✅     |                                   |
 
@@ -38,8 +39,3 @@ as a new Go package in `src/modules` & importing it in `cmd/vautour/main.go`
     - Edit the "Content" field, set the format to "String" and the transform to "Base64 Decode"
 - Profit.
     - Documents that matched the examples rules will have their `Score: >0`
-
-### Roadmap
-
-- Inputs: Github / Gists, Stack Exchange
-- Outputs: MinScore support

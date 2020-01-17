@@ -32,6 +32,7 @@ import (
 	_ "github.com/quentin-m/vautour/src/modules/redis"
 	_ "github.com/quentin-m/vautour/src/modules/elasticsearch"
 	_ "github.com/quentin-m/vautour/src/modules/yara"
+	_ "github.com/quentin-m/vautour/src/modules/mailer"
 )
 
 func main() {

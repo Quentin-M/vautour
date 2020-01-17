@@ -41,6 +41,18 @@ vautour:
       #infolog:
       #errorlog:
       #tracelog:
+    mailer:
+      driver: mailer
+      minscore: 5
+      #recipients: []
+      smtp:
+        #host: localhost
+        #port: 587
+        #username:
+        #password:
+        #fromaddr:
+        #fromalias:
+        #usecommand: true (true: use mail command; false: use smtp)
   queues:
     module: redis
   inputs:
@@ -52,5 +64,5 @@ vautour:
     modules: [yara]
     threads: 2
   outputs:
-    modules: [elasticsearch]
+    modules: [elasticsearch, mailer]
     threads: 2
