@@ -34,6 +34,14 @@
   version = "v1.1.0"
 
 [[projects]]
+  digest = "1:e9d916b5eefd4e4dd0ab8dffc161cc1da44f7d46eb22f463bfcc638dad998482"
+  name = "github.com/kataras/go-mailer"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "06940f78e32a5b39cdd70e7ce6667d9361a8282b"
+  version = "v0.1.0"
+
+[[projects]]
   digest = "1:31e761d97c76151dde79e9d28964a812c46efc5baee4085b86f68f0c654450de"
   name = "github.com/konsorten/go-windows-terminal-sequences"
   packages = ["."]
@@ -83,6 +91,14 @@
   version = "v1.4.0"
 
 [[projects]]
+  digest = "1:c468422f334a6b46a19448ad59aaffdfc0a36b08fdcc1c749a0b29b6453d7e59"
+  name = "github.com/valyala/bytebufferpool"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7"
+  version = "v1.0.0"
+
+[[projects]]
   branch = "master"
   digest = "1:bbe51412d9915d64ffaa96b51d409e070665efc5194fcf145c4a27d4133107a4"
   name = "golang.org/x/crypto"
@@ -102,6 +118,14 @@
   revision = "9eb1bfa1ce65ae8a6ff3114b0aaf9a41a6cf3560"
 
 [[projects]]
+  branch = "master"
+  digest = "1:a2f668c709f9078828e99cb1768cb02e876cb81030545046a32b54b2ac2a9ea8"
+  name = "golang.org/x/time"
+  packages = ["rate"]
+  pruneopts = "UT"
+  revision = "555d28b269f0569763d25dbe1a237ae74c6bcc82"
+
+[[projects]]
   digest = "1:4d2e5a73dc1500038e504a8d78b986630e3626dc027bc030ba5c75da257cdb96"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
@@ -116,10 +140,12 @@
     "github.com/coreos/pkg/timeutil",
     "github.com/go-redis/redis",
     "github.com/hillu/go-yara",
+    "github.com/kataras/go-mailer",
     "github.com/olivere/elastic",
     "github.com/olivere/elastic/config",
     "github.com/pkg/errors",
     "github.com/sirupsen/logrus",
+    "golang.org/x/time/rate",
     "gopkg.in/yaml.v2",
   ]
   solver-name = "gps-cdcl"

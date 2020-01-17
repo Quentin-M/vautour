@@ -29,3 +29,7 @@
 [prune]
   go-tests = true
   unused-packages = true
+
+[[constraint]]
+  name = "github.com/kataras/go-mailer"
+  version = "0.1.0"
